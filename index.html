@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gasto</title>
+  <!-- Agregar Bootstrap desde CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Agregar Bootstrap Datepicker desde CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- Agregar Moment.js para formatear fechas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <!-- Agregar fuente Open Sans desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f9fa; /* Color de fondo */
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .form-container {
+      background-color: #ffffff; /* Color de fondo del formulario */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    h1 img {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-container col-md-6 offset-md-3">
+    <h1>💲 Nuevo Gasto</h1>
+    <form action="https://script.google.com/macros/s/AKfycbylrZijM2f3-j2ZG9RLpNVpiDUTn0qmJVEGjrZGZChRBbZDSyb-XPQT6TeYJkxnUUxZ/exec" method="post">
+      <div class="form-group">
+        <label for="fecha">Fecha:</label><br>
+       <input style="width:100%" type="date" id="fecha" name="fecha" value="<?php echo date('d-m-Y'); ?>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="categoria">Categoría:</label>
+        <select class="form-control" name="categoria" required>
+          <option value="Formación">Formación</option>
+          <option value="Expensas">Expensas</option>
+          <option value="Supermercado">Supermercado</option>
+          <option value="Servicios">Servicios</option>
+          <option value="Restaurantes y Bares">Restaurantes y Bares</option>
+          <option value="Compras">Compras</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Tecnolog&iacute;a">Tecnolog&iacute;a</option>
+          <option value="Entretenimiento">Entretenimiento</option>
+          <option value="Salud y Deporte">Salud y Deporte</option>
+          <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+          <option value="Deudas">Deudas</option>
+          <option value="Vacaciones">Vacaciones</option>
+          <option value="Otros">Otros</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" class="form-control" name="descripcion" required>
+      </div>
+
+      <div class="form-group">
+        <label for="importe">Importe:</label>
+        <input type="number" class="form-control" name="importe" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: 'dd-mm-yyyy', // Formato de fecha deseado
+      todayHighlight: true,
+      autoclose: true
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
